@@ -15,7 +15,7 @@ class Computer
     @guesses_remain = guesses
     @min_word_length = min_word_length
     @max_word_length = max_word_length
-    @word_to_guess = 'random' # pick_random_word_from google_10000_english_words
+    @word_to_guess = pick_random_word_from google_10000_english_words
     @correct_letters = []
     @incorrect_letters = []
     @correct_letters_remain = @word_to_guess.length
@@ -26,7 +26,7 @@ class Computer
   end
 
   def pick_random_word_from(array)
-    array.sample
+    array.sample.gsub("\n", '')
   end
 
   def show_word
@@ -55,5 +55,9 @@ class Computer
 
   def show_remain_guesses
     puts "Guess #{@guesses_remain} / #{@guesses}:"
+  end
+
+  def reveal_word
+    puts "Solution: #{@word_to_guess}"
   end
 end

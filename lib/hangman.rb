@@ -15,8 +15,7 @@ ply = Player.new
 while com.guesses_remain.positive? && com.correct_letters_remain.positive?
   com.show_word
   com.show_remain_guesses
-
-  com.take_guess(ply.choose_letter)
+  com.take_guess ply.action
   com.show_word
   com.show_incorret_letters
 end
@@ -25,4 +24,5 @@ if com.guesses_remain.positive?
   puts 'You won!'
 else
   puts 'You lost! No guesses remaining.'
+  com.reveal_word
 end
