@@ -6,7 +6,7 @@ require 'open-uri'
 
 def google_10000_english_words
   word_url = 'https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt'
-  URI.parse(word_url).open.to_a
+  URI.parse(word_url).open.to_a.select { |word| word.length.between?(5, 12) }
 end
 
 def pick_random_word_from(array)
